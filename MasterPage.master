@@ -1,0 +1,398 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server" >
+    <!-- Meta and Title -->
+    <meta charset="utf-8" />
+    <title>ONE RMS - V3</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <%--  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>--%>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.png" />
+
+    <!-- Angular material -->
+    <link rel="stylesheet" type="text/css" href="assets/skin/css/angular-material.min.css" />
+
+    <!-- Icomoon -->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/icomoon/icomoon.css" />
+
+    <!-- AnimatedSVGIcons -->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/animatedsvgicons/css/codropsicons.css" />
+
+
+    <!-- Iconsweets CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/iconsweets/iconsweets.css" />
+    <!-- Octicons CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/octicons/octicons.css" />
+    <!-- Summernote -->
+    <%--    <link rel="stylesheet" type="text/css" href="assets/js/plugins/summernote/summernote.css" />--%>
+    <!-- Stateface CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/stateface/stateface.css" />
+    <!-- Magnific popup -->
+    <link rel="stylesheet" type="text/css" href="assets/js/plugins/magnific/magnific-popup.css" />
+    <!-- c3charts -->
+    <link rel="stylesheet" type="text/css" href="assets/js/plugins/c3charts/c3.min.css" />
+
+    <!-- CSS - allcp forms -->
+    <link rel="stylesheet" type="text/css" href="assets/allcp/forms/css/forms.css" />
+
+    <!-- mCustomScrollbar -->
+    <link rel="stylesheet" type="text/css" href="assets/js/utility/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.min.css" />
+
+    <!-- CSS - theme -->
+    <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/less/theme.css" />
+
+    <link href="assets/js/bootstrap-datepicker.css" rel="stylesheet" />
+
+    <link href="assets/js/bootstrapValidator.min.css" rel="stylesheet" />
+
+    <link href="assets/fonts/zocial/zocial.css" rel="stylesheet" />
+
+    <link href="assets/fonts/font-awesome/fontawesome.min.css" rel="stylesheet" />
+
+    <!-- Custom css -->
+    <link href="assets/skin/css/custom.css" rel="stylesheet" />
+   <%-- <script src="assets/js/jquery/jquery-1.12.3.min.js"></script>--%>
+  
+
+    <script src="assets/js/modernizr.js"></script>
+
+    <script src="assets/js/jspdf.min.js"></script>
+
+    <script type="text/javascript" src="assets/js/Custom.js"></script>
+
+    <script type="text/javascript">
+
+        //avoid go back event..
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+    </script>
+    <style>
+        .b_table tbody tr th {
+            background-color: #47d178 !important;
+            position: sticky !important;
+            z-index: 1 !important;
+            top: 0 !important;
+            color: #fff;
+        }
+
+        .b_table th {
+            padding-left: 15px;
+        }
+
+        .panel-controls > .panel-control-remove {
+            display: none;
+        }
+
+        .panel-controls > .panel-control-title {
+            display: none;
+        }
+
+        .panel-controls > .panel-control-loader {
+            display: none;
+        }
+
+
+        .panel-controls > .panel-control-fullscreen {
+            display: none;
+        }
+
+
+           
+        .cssPager td {
+            padding: 0px 5px;
+        }
+ 
+    </style>
+
+    <script>
+
+        /* Page Time Out Warning Message Script */
+        var sessionTimeoutWarning = '<%=System.Configuration.ConfigurationSettings.AppSettings["SessionWarning"].ToString()%>';
+        var sessionTimeout = "<%= Session.Timeout %>";
+        var sTimeout = parseInt(sessionTimeoutWarning) * 60 * 1000;
+
+        var timeOnPageLoad = new Date();
+        setTimeout('SessionWarning()', sTimeout);
+        //To redirect to the home page
+        setTimeout('RedirectToWelcomePage()', parseInt(sessionTimeout) * 60 * 1000);
+
+        //Session Warning
+        function SessionWarning() {
+            debugger;
+            //minutes left for expiry
+            var minutesForExpiry = (parseInt(sessionTimeout) -
+                                                parseInt(sessionTimeoutWarning));
+            var message = "Your session will expire in another " + minutesForExpiry +
+                                    " mins! Please Reload this page before the session expires";
+            alert(message);
+            var currentTime = new Date();
+            //time for expiry
+            var timeForExpiry = timeOnPageLoad.setMinutes(timeOnPageLoad.getMinutes()
+                                                + parseInt(sessionTimeout));
+
+            //Current time is greater than the expiry time
+            if (Date.parse(currentTime) > timeForExpiry) {
+                alert("Session expired. You will be redirected to Logout Page");
+                window.location = "Logout.aspx";
+            }
+        }
+
+        //Session timeout add home page where you want to redirect after session timeout
+        function RedirectToWelcomePage() {
+            debugger;
+            alert("Session expired. You will be redirected to Logout Page");
+            window.location = "Logout.aspx";
+        }
+        /* End */
+
+
+
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body class="widgets-tools ">
+    <form id="form1" autocomplete="off" runat="server">
+        <div id="main" style="overflow:hidden;">
+            <!-- Header  -->
+            <!-- Header  -->
+            <header class="navbar navbar-fixed-top" style="margin-left: 0px;height:40px">
+                <div class="navbar-logo-wrapper">
+                    <a class="" href="Dashboard-V3_1.aspx">
+                        <span class="fa fa-home fs40"></span>
+                    </a>
+                </div>
+                <span id="sidebar_top_toggle" class="ad ad-lines navbar-nav navbar-left showing-sm"></span>
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown dropdown-fuse text-white">
+                        <div class="navbar-btn btn-group phn">
+                            <button class="btn-hover-effects dropdown-toggle btn" data-toggle="dropdown" aria-expanded="false">
+                                <span class="fa fa-file-text-o"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><span>Reports</span></li>
+                                <li class="divider"></li>
+                                <li><a href="TransactionReport.aspx" style="display: none;" class="text-white">Txn Report</a></li>
+                                <li><a href="HealthReport.aspx" class="text-white">Health Report</a></li>
+                                <li><a href="CustomizeReport.aspx" class="text-white">Transactions Report</a></li>
+                                <li runat="server" visible="false"><a href="Ticketmanagment.aspx" class="text-white">Ticket/Issues</a></li>
+                                <li id="TicketReportID" runat="server"><a href="TicketCenter.aspx" class="text-white "><span ></span>Call Ticket's Report</a></li>                               
+                                <li style="display: none;"><a href="UploadExcel.aspx" class="text-white">Upload Excel Data</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="navbar-btn btn-group text-dark">
+                            <asp:Label ID="lblHeading" runat="server" Text=""></asp:Label>
+                        </span>
+                    </li>
+                 
+                    <li class="dropdown dropdown-fuse text-white" runat="server" id="AdminOptions">
+                        <div class="navbar-btn btn-group  phn"data-toggle='tooltip' data-placement='left' title='Admin Tools'>
+                            <button class="btn-hover-effects dropdown-toggle btn" data-toggle="dropdown" aria-expanded="false">
+                                <span class="fa fa-magic fs20"></span>
+
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><span>Admin Tool</span></li>
+                                <li class="divider"></li>
+                                <li><a href="DataPull.aspx" class="text-white"><span class="fa fa-database mr10"></span>Data Pull</a></li>
+                                <li><a href="PatchUpdate.aspx" class="text-white"><span class="fa fa-folder mr10"></span>Patch Update</a></li>                                
+                                <li><a href="BranchManage.aspx" class="text-white"><span class="fa fa-envelope mr10"></span>Branch Management</a></li>
+                                <li><a href="KioskMasterReport.aspx" class="text-white"><span class="fa fa-envelope mr10"></span>Kiosk Master</a></li>
+                                <li><a href="KioskLocationType.aspx" class="text-white "><span class="fa fa-envelope mr10"></span>Kiosk Location Report</a></li>
+                                <%-- <li><a href="Setting.aspx" class="text-white hide"><span class="fa fa-cog mr10"></span>Settings</a></li>
+                                <li><a href="UserManage.aspx" class="text-white hide"><span class="fa fa-user mr10"></span>Users</a></li> --%>
+                            </ul>
+                        </div>
+                         <div class="navbar-btn btn-group text-dark">
+                            Admin Tool
+                        </div>
+                    </li>
+                  
+
+
+
+                    <li class="hidden-xs" style="visibility: hidden">
+                        <div class="navbar-btn btn-group">
+                            <button class="btn-hover-effects navbar-fullscreen toggle-active btn si-icons si-icons-default">
+                                <span class="si-icon si-icon-maximize-rotate default" data-icon-name="maximizeRotate"></span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+
+
+                    <li class="dropdown dropdown-fuse navbar-user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img class="btn-hover-effects" src="assets/img/avatars/user.jpg" alt="avatar" />
+                            <span class="hidden-xs">
+                                <span class="name text-uppercase" id="LoginName" runat="server"></span>
+                            </span>
+                            <span class="fa fa-caret-down hidden-xs"></span>
+                        </a>
+
+                        <ul class="dropdown-menu list-group keep-dropdown w230" role="menu">
+                            <li class="dropdown-header clearfix" style="display: none;">
+                                <div class="pull-left">
+                                    <select id="user-status">
+                                        <optgroup label="Current Status:">
+                                            <option value="1-1">Away</option>
+                                            <option value="1-2">Busy</option>
+                                            <option value="1-3" selected="selected">Online</option>
+                                            <option value="1-4">Offline</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="pull-right">
+                                    <select id="user-role">
+                                        <optgroup label="Logged in As:">
+                                            <option value="1-1" selected="selected">Admin</option>
+                                            <option value="1-2">Editor</option>
+                                            <option value="1-3">User</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="list-group-item" style="display: none;">
+                                <span class="fa fa-envelope"></span>
+                                <a href="#" class="">Messages
+                                <span class="label label-info">3</span>
+                                </a>
+                            </li>
+                            <li class="list-group-item" style="">
+                                <span class="fa fa-user"></span>
+                                <a href="#" class="">
+                                    <asp:Label ID="lblUserLocation" runat="server" Text=""></asp:Label>
+                                    <span class="label label-info"></span>
+                                </a>
+                            </li>
+                            <li class="list-group-item" style="display: none;"><%-- login time in session--%>
+                                <span class="fa fa-clock"></span>
+                                <a href="#" class="">
+                                    <span class="text "></span>
+                                </a>
+                            </li>
+                            <li class="list-group-item" style="display: none;">
+                                <span class="fa fa-bell"></span>
+                                <a href="#" class="">Activity
+                                </a>
+                            </li>
+
+                            <li class="dropdown-footer text-center">
+                                <a href="About.aspx" class="btn btn-warning">About / Contact
+                                </a>
+                            </li>
+
+                            <li class="dropdown-footer text-center">
+                                <a href="Logout.aspx" class="btn btn-warning">logout
+                                </a>
+                            </li>
+
+                            <li class="dropdown-footer text-center">
+                                <a href="#" class="btn btn-warning">RMS 12.6.1.9
+                                </a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <img src="assets/img/kiosk/BankLogo.png" alt="" style="height: 30px; width: 90px; margin-right: 0px" />
+
+                    </li>
+                </ul>
+
+
+
+            </header>
+            <!-- /Header -->
+
+
+            <div id="sidebar_left" class="nano affix" style="display: none">
+                <!-- Sidebar Left Wrapper  -->
+                <div class="sidebar-left-content nano-content">
+                </div>
+                <!-- /Sidebar Left Wrapper  -->
+
+            </div>
+
+           
+            <!-- Main Wrapper -->
+            <%--<div class="row">
+                <section id="content_wrapper" style="margin-left: 0px;overflow-x:hidden;">
+                    <!-- Topbar Menu Wrapper -->
+
+                    <!-- /Topbar Menu Wrapper -->
+                    <br />
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </section>
+            </div>--%>
+            <section id="content_wrapper" style="margin-left: 0px;">
+                <!-- Topbar Menu Wrapper -->
+
+                <!-- /Topbar Menu Wrapper -->
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </section>
+        </div>
+    </form>
+    <!-- jQuery -->
+
+    <%--<script src="assets/js/jquery/jquery_ui/jquery-ui.min.js"></script>--%>
+   <script src="assets/js/jquery/jquery-3.5.1.min.js"></script>
+   <script src="assets/js/bootstrap-4.0.min.css"></script>
+   <script src="assets/js/bootstrap-4.0.min.js"></script>
+
+    <!-- AnimatedSVGIcons -->
+    <script src="assets/fonts/animatedsvgicons/js/snap.svg-min.js"></script>
+    <script src="assets/fonts/animatedsvgicons/js/svgicons-config.js"></script>
+    <script src="assets/fonts/animatedsvgicons/js/svgicons.js"></script>
+    <script src="assets/fonts/animatedsvgicons/js/svgicons-init.js"></script>
+    <!-- HighCharts Plugin -->
+    <script src="assets/js/plugins/highcharts/highcharts.js"></script>
+    <!-- Scroll -->
+    <script src="assets/js/utility/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Magnific Popup Plugin -->
+    <script src="assets/js/plugins/magnific/jquery.magnific-popup.js"></script>
+    <!-- FullCalendar Plugin -->
+    <%--<script src="assets/js/plugins/fullcalendar/lib/moment.min.js"></script>--%>
+
+    <!-- Summernote -->
+    <%--<script src="assets/js/plugins/summernote/summernote.min.js"></script>--%>
+    <!-- Theme Scripts -->
+
+    <script src="assets/js/utility/utility.js"></script>
+    <script src="assets/js/demo/demo.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/demo/widgets_sidebar.js"></script>
+    <script src="assets/js/demo/widgets.js"></script>
+    <%-- <script src="assets/js/pages/dashboard1.js"></script>--%>
+    <script src="assets/js/pages/dashboard_init.js"></script>
+    <script src="assets/js/fontawesome.min.js"></script>
+    <script src="assets/js/plugins/c3charts/d3.min.js"></script>
+
+    <script src="assets/js/plugins/circles/circles.js"></script>
+    <script src="assets/js/plugins/jvectormap/jquery.jvectormap.min.js"></script>
+    <script src="assets/js/plugins/jvectormap/assets/jquery-jvectormap-us-lcc-en.js"></script>
+    <script src="assets/js/plugins/jvectormap/assets/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="assets/js/bootstrapValidator.min.js"></script>
+   <%-- <script src="assets/js/moment.min.js"></script>--%>
+    <script src="assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="assets/js/pages/allcp_forms-elements.js"></script>
+    <script src="assets/js/pages/management-tools-modals.js"></script>
+
+</body>
+</html>

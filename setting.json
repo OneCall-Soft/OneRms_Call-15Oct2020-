@@ -1,0 +1,41 @@
+{
+  "Admin": {
+    "Printed_Characters_Full": true,
+    "Printed_Characters_Partial": false,
+    "Line_Feeds": false,
+    "Documents_Insertions": true,
+    "Cover_Openings": true,
+    "Paper_Jams": true,
+    "Front_Scannings": true,
+    "Back_Scannings": false,
+    "Power_on_hours": true,
+    "Standby_hours": true,
+    "Power_on_cycles": true
+  },
+  "CircleUser": {
+    "Printed_Characters_Full": true,
+    "Printed_Characters_Partial": false,
+    "Line_Feeds": false,
+    "Documents_Insertions": true,
+    "Cover_Openings": true,
+    "Paper_Jams": true,
+    "Front_Scannings": false,
+    "Back_Scannings": false,
+    "Power_on_hours": false,
+    "Standby_hours": false,
+    "Power_on_cycles": false
+  },
+  "BranchUser": {
+    "Printed_Characters_Full": true,
+    "Printed_Characters_Partial": false,
+    "Line_Feeds": false,
+    "Documents_Insertions": false,
+    "Cover_Openings": true,
+    "Paper_Jams": true,
+    "Front_Scannings": true,
+    "Back_Scannings": false,
+    "Power_on_hours": false,
+    "Standby_hours": false,
+    "Power_on_cycles": true
+  }
+}

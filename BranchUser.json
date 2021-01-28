@@ -1,0 +1,15 @@
+﻿[
+  {
+    "Printed_Characters_Full": "True",
+    "Printed_Characters_Partial": "True",
+    "Line_Feeds": "false",
+    "Documents_Insertions": "True",
+    "Cover_Openings": "True",
+    "Paper_Jams": "True",
+    "Front_Scannings": "True",
+    "Back_Scannings": "False",
+    "Power_on_hours": "False",
+    "Standby_hours": "False",
+    "Power_on_cycles": "False"
+  }
+]
