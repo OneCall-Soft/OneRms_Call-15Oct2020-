@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script>
+window.onload = function () {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        exportEnabled: false,
+	animationEnabled: true,
+	theme: "light",
+	title:{
+		
+	},
+	axisY:{
+		includeZero: false
+	},
+	data: [{        
+		type: "line",       
+		dataPoints: [
+			{ y: 50 },
+			{ y: 114},
+			{ y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
+			{ y: 160 },
+			{ y: 450 },
+			{ y: 300 },
+			{ y: 180 },
+			{ y: 280 },
+			{ y: 10 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+			{ y: 300 },
+			{ y: 380 },
+			{ y: 410 }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 350px; max-width: 600px; "></div>
+    <script src="canvasjs.min.js"></script>
+    <style>
+        .canvasjs-chart-toolbar, a.canvasjs-chart-credit {
+            display: none;
+        }
+    </style>
+</body>
+</html>

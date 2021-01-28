@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+
+    <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light",
+
+	exportEnabled: true,
+	animationEnabled: true,
+	title:{
+
+	},
+	legend:{
+		cursor: "pointer",
+		itemclick: explodePie
+	},
+	data: [{
+		type: "doughnut",
+		innerRadius: 40,
+		startAngle: 270,
+		showInLegend: false,
+		toolTipContent: "<b>{name}</b>: {y} (#percent%)",
+		indexLabel: "{name} -  {y}",
+		dataPoints: [
+			{ y: 50, name: "Connected" },
+			{ y: 20, name: "Disconnected" },
+
+		]
+	}]
+});
+chart.render();
+
+function explodePie (e) {
+	if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+	} else {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+	}
+	e.chart.render();
+}
+
+}
+    </script>
+</head>
+<body>
+
+    <div id="chartContainer" style="height: 150px; width:300px;"></div>
+
+    <script src="canvasjs.min.js"></script>
+
+    <style>
+      /*.canvasjs-chart-toolbar,  a.canvasjs-chart-credit {
+    display: none;*/
+}
+
+ 
+    </style>
+
+</body>
+</html>

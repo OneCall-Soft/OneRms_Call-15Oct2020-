@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "OneRms_Call(15Oct2020)", ".", "{AED80B7B-35FF-46BF-9DE0-1ED423E5D4CD}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62372"
+		Debug.AspNetCompiler.PhysicalPath = "..\OneRms_Call(15Oct2020)\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62372\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62372"
+		Release.AspNetCompiler.PhysicalPath = "..\OneRms_Call(15Oct2020)\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62372\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62372"
+		SlnRelativePath = "..\OneRms_Call(15Oct2020)\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AED80B7B-35FF-46BF-9DE0-1ED423E5D4CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED80B7B-35FF-46BF-9DE0-1ED423E5D4CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED80B7B-35FF-46BF-9DE0-1ED423E5D4CD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AED80B7B-35FF-46BF-9DE0-1ED423E5D4CD}.Debug|x86.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {875843EF-19E7-4F82-9AB7-49A0FF6056B0}
+	EndGlobalSection
+EndGlobal
